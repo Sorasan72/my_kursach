@@ -1,0 +1,27 @@
+/* заголовок */
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__title {
+    text-shadow: 1px 1px 2px white;
+    margin-block: 8px;
+}
+
+.header__subtitle {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 2px #4D89F8;
+    
+}
+
+img {
+    width: 85px;
+    height: 85px;
+}
+
+hr {
+    /* margin: 0; */
+    border: 2px solid #4D89F8;
+}
