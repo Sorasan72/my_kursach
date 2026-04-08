@@ -10,10 +10,14 @@ totalMeasure.setAttribute('class', 'measure')
 
 export const measureChanger = () => measureForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    if ((!measureValue.value) || isNaN(parseFloat(measureValue.value))) {
-        // measureValue.classList.add("invalid")
+    if (!measureValue.value) {
         alert('Введите число!')
        
+    }
+    if (measureValue.value < 0) {
+        alert('Введите действительное число!')
+        measureValue.value = ''
+        return
     }
     if (milesToKilo.checked) {
         const value = parseFloat(measureValue.value)

@@ -12,7 +12,6 @@ export const list__actions = () => list.addEventListener('click', (event) => {
     
 })
 
-let amount
 
 const onWhat = document.getElementById('on__what')
 const howMuch = document.getElementById('how__much')
@@ -22,31 +21,34 @@ addItemForm.addEventListener('submit', (event) => {
     event.preventDefault();
     
     if (!onWhat.value || !howMuch.value) {
-        alert('Заполните все поля!');
-        return;
+        alert('Заполните все поля!')
+        return
+    }
+    if (!isNaN(onWhat.value)) {
+        alert('Трата не должна быть числом!')
+        return
+    }
+    if (howMuch.value < 0) {
+        alert('Введите действительное число!')
+        return
     }
 
-    amount = parseFloat(howMuch.value);
-    if (isNaN(amount)) {
-        alert('Сумма должна быть числом!');
-        return;
-    }
+    newListItem.className = 'total__list__elem'
+    newListItem.innerHTML = `${onWhat.value} <div class="container"><input type="text" class="list__elem__input" value="${howMuch.value}"><button class="delete">🗑️</button></div>`
     
-
-    newListItem.className = 'total__list__elem';
-    newListItem.innerHTML = `${onWhat.value} <div class="container"><input type="text" class="list__elem__input" value="${amount}"><button class="delete">🗑️</button></div>`;
-    
-    const newInput = newListItem.querySelector('.list__elem__input');
-    newInput.addEventListener('input', () => validateInput(newInput));
+    const newInput = newListItem.querySelector('.list__elem__input')
+    newInput.addEventListener('input', () => validateInput(newInput))
     list.appendChild(newListItem);
     
-    onWhat.value = '';
-    howMuch.value = '';
+    onWhat.value = ''
+    howMuch.value = ''
 })
 
 const clearButton = document.querySelector(".clear")
-export const clearBtn = () => clearButton.addEventListener('click', () => {
+export const clearBtn = () => clearButton.addEventListener('click', (event) => {
+   event.preventDefault()
     list.innerHTML = ''
+
 })
 
 list__actions();

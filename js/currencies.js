@@ -39,6 +39,12 @@ const convert = () => {
 
     event.preventDefault();
 
+    if (currencyInput.value < 0) {
+        alert('Введите действительное число!')
+        currencyInput.value = ''
+        return
+    }
+
     const codeTo = changeTo.value
     const codeFrom = changeFrom.value
     console.log(codeFrom, codeTo);
