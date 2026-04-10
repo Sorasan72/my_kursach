@@ -23,13 +23,13 @@ export const measureChanger = () => measureForm.addEventListener('submit', (even
     }
     if (milesToKilo.checked) {
         const value = parseFloat(measureValue.value)
-        const result = Math.round(value * 1.60934) * 100
+        const result = value * 1.60934
         totalMeasure.textContent = result
 
     }
     if (kiloToMiles.checked) {
         const value = parseFloat(measureValue.value)
-        const result = Math.round(value / 1.60934) * 100
+        const result = value / 1.60934
         totalMeasure.textContent = `${result}`
     }
     measuresContainer.append(totalMeasure)
