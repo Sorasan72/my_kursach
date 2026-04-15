@@ -50,7 +50,7 @@
             </section>
             <section class="measures">
                 <h2 class="second__section">Конвертер единиц измерения</h2>
-                <form action="" class="measures__changer">
+                <form action="" class="measures__changer distance">
                     <label for="from">
                         <input type="radio" name="radioBtn" id="from" value="">
                         Мили → км
@@ -63,6 +63,25 @@
                     
                     <div class="total__measure">
                         <input type="number" class="measure__value">
+                        <!-- <p class="measure"></p> -->
+                    </div>
+                    
+                    <button type="submit" class="measure__btn">Конверитировать</button>
+                </form>
+
+                <form action="" class="measures__changer weight">
+                    <label for="from2">
+                        <input type="radio" name="radioBtn" id="from2" value="">
+                        Кг → фунты
+                    </label>
+                    
+                    <label for="to2">   
+                        <input type="radio" name="radioBtn" id="to2" value="">
+                        Фунты → кг
+                    </label>
+                    
+                    <div class="total__measure2">
+                        <input type="number" class="measure__value2">
                         <!-- <p class="measure"></p> -->
                     </div>
                     

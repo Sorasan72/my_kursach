@@ -30,9 +30,14 @@ h2 {
 }
 
 .currency__changer, .measures__changer {
+    
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.distance {
+    margin-bottom: 20px;
 }
 
 .measure__value {

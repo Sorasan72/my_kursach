@@ -1,6 +1,6 @@
 // перевод единиц измерения
 
-const measureForm = document.querySelector(".measures__changer")
+const distanceForm = document.querySelector(".distance")
 const milesToKilo = document.querySelector("#from")
 const kiloToMiles = document.querySelector("#to")
 const measureValue = document.querySelector(".measure__value")
@@ -9,8 +9,7 @@ const totalMeasure = document.createElement('p')
 totalMeasure.setAttribute('class', 'measure')
 
 
-
-export const measureChanger = () => measureForm.addEventListener('submit', (event) => {
+export const distanceChanger = () => distanceForm.addEventListener('submit', (event) => {
     event.preventDefault()
     if (!measureValue.value) {
         alert('Введите число!')
@@ -36,4 +35,40 @@ export const measureChanger = () => measureForm.addEventListener('submit', (even
     measureValue.value = ''
 })
 
-measureChanger()
+const weightForm = document.querySelector(".weight")
+const kiloToFt = document.querySelector("#from2")
+const ftToKilo = document.querySelector("#to2")
+const measureValue2 = document.querySelector(".measure__value2")
+const measuresContainer2 = document.querySelector(".total__measure2")
+const totalMeasure2 = document.createElement('p')
+totalMeasure2.setAttribute('class', 'measure')
+
+export const weightChanger = () => weightForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!measureValue2.value) {
+        alert('Введите число!')
+       
+    }
+    if (measureValue2.value < 0) {
+        alert('Введите действительное число!')
+        measureValue2.value = ''
+        return
+    }
+    if (kiloToFt.checked) {
+        const value = parseFloat(measureValue2.value)
+        const result = value * 2.205
+        totalMeasure2.textContent = result
+
+    }
+    if (ftToKilo.checked) {
+        const value = parseFloat(measureValue2.value)
+        const result = value * 0.454
+        totalMeasure2.textContent = `${result}`
+    }
+    measuresContainer2.append(totalMeasure2)
+    measureValue2.value = ''
+})
+
+
+distanceChanger()
+weightChanger()
